@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="FolderBrowser.TextBoxUserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FolderBrowser"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ControlTemplate x:Key="TextBoxControlTemplate" TargetType="{x:Type TextBox}">
+            <Border x:Name="border" CornerRadius="6" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="True">
+                <ScrollViewer x:Name="PART_ContentHost" Focusable="False" HorizontalScrollBarVisibility="Hidden" VerticalScrollBarVisibility="Hidden"/>
+            </Border>
+            <ControlTemplate.Triggers>
+                <Trigger Property="IsEnabled" Value="False">
+                    <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                </Trigger>
+                <Trigger Property="IsMouseOver" Value="True">
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF7EB4EA"/>
+                </Trigger>
+                <Trigger Property="IsKeyboardFocused" Value="True">
+                    <Setter Property="BorderBrush" TargetName="border" Value="#FF569DE5"/>
+                </Trigger>
+            </ControlTemplate.Triggers>
+        </ControlTemplate>
+    </UserControl.Resources>
+    <StackPanel Orientation="Vertical">
+        <TextBlock Text="{Binding TextoTextBlock}"></TextBlock>
+        <DockPanel >
+            <Button x:Name="SeleccionarButton" DockPanel.Dock="Right" Margin="2,0,0,0" Click="SeleccionarButton_Click">Seleccionar</Button>
+            <TextBox DockPanel.Dock="Left" Margin="0,0,2,0" Text="{Binding TextoTextBox}"  Template="{DynamicResource TextBoxControlTemplate}"></TextBox>
+        </DockPanel>
+
+    </StackPanel>
+</UserControl>
