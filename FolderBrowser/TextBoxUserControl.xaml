@@ -28,7 +28,7 @@
         <TextBlock Text="{Binding TextoTextBlock}"></TextBlock>
         <DockPanel >
             <Button x:Name="SeleccionarButton" DockPanel.Dock="Right" Margin="2,0,0,0" Click="SeleccionarButton_Click">Seleccionar</Button>
-            <TextBox DockPanel.Dock="Left" Margin="0,0,2,0" Text="{Binding TextoTextBox}"  Template="{DynamicResource TextBoxControlTemplate}"></TextBox>
+            <TextBox IsReadOnly="{Binding SoloLectura}" DockPanel.Dock="Left" Margin="0,0,2,0" Text="{Binding TextoTextBox}"  Template="{DynamicResource TextBoxControlTemplate}"></TextBox>
         </DockPanel>
 
     </StackPanel>

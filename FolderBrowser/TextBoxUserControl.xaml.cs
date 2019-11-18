@@ -38,6 +38,20 @@ namespace FolderBrowser
             set { SetValue(TextoTextBoxProperty, value); }
         }
 
+
+
+        public bool SoloLectura
+        {
+            get { return (bool)GetValue(SoloLecturaProperty); }
+            set { SetValue(SoloLecturaProperty, value); }
+        }
+
+        // Using a DependencyProperty as the backing store for SoloLectura.  This enables animation, styling, binding, etc...
+        public static readonly DependencyProperty SoloLecturaProperty =
+            DependencyProperty.Register("SoloLectura", typeof(bool), typeof(TextBoxUserControl), new PropertyMetadata(false));
+
+
+
         // Using a DependencyProperty as the backing store for TextoTextBox.  This enables animation, styling, binding, etc...
         public static readonly DependencyProperty TextoTextBoxProperty =
             DependencyProperty.Register("TextoTextBox", typeof(string), typeof(TextBoxUserControl), new PropertyMetadata(""));
